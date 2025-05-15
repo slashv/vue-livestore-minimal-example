@@ -1,4 +1,4 @@
-import { type Store, createStorePromise } from '@livestore/livestore'
+import { createStorePromise } from '@livestore/livestore'
 import { makePersistedAdapter } from '@livestore/adapter-web'
 import LiveStoreSharedWorker from '@livestore/adapter-web/shared-worker?sharedworker'
 
