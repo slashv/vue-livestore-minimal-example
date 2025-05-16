@@ -1,6 +1,6 @@
 # Vue LiveStore - Minimal example
 
-**[!] LiveStore still in private beta - See [LiveStore site](https://livestore.dev/) for updates and information**
+**[!] LiveStore still in private preview - See [LiveStore site](https://livestore.dev/) for updates and information**
 
 This is a minimal example of how to integrate LiveStore with Vue.
 
