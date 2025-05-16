@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ref, inject, onUnmounted } from 'vue'
-import { type Store, queryDb } from '@livestore/livestore'
+import { queryDb } from '@livestore/livestore'
 import { events, tables } from './livestore/schema'
 import { StoreKey } from './store'
 
-// Cast because we deliberately used `unknown` when exporting StoreKey to avoid generic conflicts
-const store = inject(StoreKey as unknown as import('vue').InjectionKey<Store>) as Store
+const store = inject(StoreKey)!
+
+// Query & subscription
 
 const visibleTodos$ = queryDb(
   (get) => {
@@ -24,10 +25,16 @@ const unsubscribe = store.subscribe(visibleTodos$, {
 })
 onUnmounted(() => unsubscribe())
 
+// Events
+
 const newTodoText = ref('')
 const createTodo = () => {
   store.commit(events.todoCreated({ id: crypto.randomUUID(), text: newTodoText.value }))
   newTodoText.value = ''
+}
+
+const deleteTodo = (id: string) => {
+  store.commit(events.todoDeleted({ id, deletedAt: new Date() }))
 }
 
 const toggleCompleted = (id: string) => {
@@ -55,17 +62,11 @@ const toggleCompleted = (id: string) => {
       :key="todo.id"
       class="todo"
     >
-      <span
-        v-if="todo.completed"
-        style="text-decoration: line-through"
-      >
-        {{ todo.text }}
-      </span>
-      <span v-else>
+      <span :class="{ completed: todo.completed }">
         {{ todo.text }}
       </span>
       <button @click="toggleCompleted(todo.id)">Complete</button>
-      <button @click="store.commit(events.todoDeleted({ id: todo.id, deletedAt: new Date() }))">Delete</button>
+      <button @click="deleteTodo(todo.id)">Delete</button>
     </div>
   </div>
 </template>

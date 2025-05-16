@@ -18,4 +18,6 @@ export const storePromise = createStorePromise({
   storeId: 'test_store',
 })
 
-export const StoreKey: InjectionKey<unknown> = Symbol('LiveStore')
+export type StoreInstance = Awaited<typeof storePromise>
+
+export const StoreKey = Symbol('LiveStore') as InjectionKey<StoreInstance>

@@ -1,39 +1,24 @@
-# vue-livestore-test
+# Vue LiveStore - Minimal example
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a minimal example of how to integrate LiveStore with Vue.
 
-## Recommended IDE Setup
+I'll start working on a more cohesive Vue interation that implements the useStore, useQuery and useClientDocument composables to match the functionality with the React integration but will leave this repository as it is since it can be useful from a learning perspective.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Relevant files
 
-## Type Support for `.vue` Imports in TS
+**store.ts**: Setup store and defines StoreKey as canonical store reference to provide / inject.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+**main.ts**: Creates store and provides the store to the app.
 
-## Customize configuration
+**App.vue**: Injects the store, creates and subscribes to query, commits events.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+**livestore/schema.ts**: Same as React example
 
-## Project Setup
+**livestore/livestore.worker.ts**: same as React example
 
-```sh
+## Running the example
+
+```bash
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
 ```
