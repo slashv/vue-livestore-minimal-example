@@ -4,7 +4,7 @@
 
 This is a minimal example of how to integrate LiveStore with Vue.
 
-For a more comprehensive integration ses [Vue LiveStore](https://github.com/slashv/vue-livestore)
+For a more comprehensive integration see: [Vue LiveStore](https://github.com/slashv/vue-livestore)
 
 ## Relevant files
 
