@@ -4,7 +4,7 @@
 
 This is a minimal example of how to integrate LiveStore with Vue.
 
-I'll start working on a more cohesive Vue interation that implements the useStore, useQuery and useClientDocument composables to match the functionality with the React integration but will leave this repository as it is since it can be useful from a learning perspective.
+For a more comprehensive integration ses [Vue LiveStore](https://github.com/slashv/vue-livestore)
 
 ## Relevant files
 
